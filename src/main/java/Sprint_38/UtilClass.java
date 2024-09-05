@@ -26,8 +26,6 @@ import org.testng.annotations.Listeners;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Listeners(TestListener.class)
@@ -40,7 +38,7 @@ public class UtilClass {
 	@BeforeClass
 	public void extentReportInitialization() {
 		String path = System.getProperty("user.dir");
-		ExtentSparkReporter reporter = new ExtentSparkReporter(path + "/Test Report/testReport.html");
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path + "/Test Report/testReport_EPIC_1741.html");
 		reports = new ExtentReports();
 		reports.attachReporter(reporter);
 	}
@@ -54,11 +52,11 @@ public class UtilClass {
 
 	}
 
-	@AfterMethod
-	public void browser() {
-		driver.close();
-		driver.quit();
-	}
+//	@AfterMethod
+//	public void browser() {
+//		driver.close();
+//		driver.quit();
+//	}
 	public static void init(Object page) {
 		PageFactory.initElements(driver, page);
 	}
@@ -157,5 +155,30 @@ public class UtilClass {
 		SimpleDateFormat form = new SimpleDateFormat(format);
 		return form.format(cal.getTime());
 	}
+	
+	public static void Frame_Switch() {
+		EPIC_1741 Frames_method = new EPIC_1741(driver);
+		
+		String text = Frames_method.frameName_Main.getAttribute("name");
+
+		if (text != null) {
+		    if (text.contains("PegaGadget0Ifr")) {
+		        driver.switchTo().frame(Frames_method.frameName0);
+		    } else if (text.contains("PegaGadget1Ifr")) {
+		        driver.switchTo().frame(Frames_method.frameName1);
+		    } else if (text.contains("PegaGadget2Ifr")) {
+		        driver.switchTo().frame(Frames_method.frameName2);
+		    } else if (text.contains("PegaGadget3Ifr")) {
+		        driver.switchTo().frame(Frames_method.frameName3);
+		    } else if (text.contains("PegaGadget4Ifr")) {
+		        driver.switchTo().frame(Frames_method.frameName4);
+		    } else {
+		        System.out.println("No matching frame found for name: " + text);
+		        // Add appropriate handling or throw an exception if needed
+		    }
+		} else {
+		    System.out.println("Invalid frame name: name attribute is null");
+		    // Handle the case where the 'name' attribute is not found
+		}}
 
 }

@@ -6,9 +6,12 @@ import static org.testng.Assert.assertTrue;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.codehaus.jettison.json.JSONObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -185,25 +188,6 @@ public class EPIC_1741 extends UtilClass {
 	@FindBy(xpath = "//button[contains(text(),'Go')]")
 	public static WebElement OutboundLoads_Go;
 
-	// ****Frames****
-
-	@FindBy(xpath = "//iframe[contains(@name, 'PegaGadget')]")
-	public static WebElement oneframe;
-	
-	@FindBy(xpath = "//iframe[@name='PegaGadget0Ifr']")
-	public static WebElement frameName1;
-
-	@FindBy(xpath = "//iframe[@name='PegaGadget1Ifr']")
-	public static WebElement frameName2;
-
-	@FindBy(xpath = "//iframe[@name='PegaGadget3Ifr']")
-	public static WebElement iframe3;
-
-	@FindBy(xpath = "//iframe[@name='PegaGadget4Ifr']")
-	public static WebElement iframe4;
-
-	@FindBy(xpath = "//iframe[@name='PegaGadget2Ifr']")
-	public static WebElement frameName3;
 
 	@FindBy(xpath = "//iframe[@name='PegaGadget3Ifr']")
 	public static WebElement CrowleyReport_Frame;
@@ -375,6 +359,9 @@ public class EPIC_1741 extends UtilClass {
 	@FindBy(xpath = "//div[@aria-label='Exception Management']")
 	public static WebElement ExceptionManagementHeaderClick;
 
+//	@FindBy(xpath = "//div[contains(@aria-label,'Inbound Shipment')]")
+//	public static WebElement InboundShipmentHeaderClick;
+	
 	@FindBy(xpath = "//div[contains(@aria-label,'Inbound Shipment')]")
 	public static WebElement InboundShipmentHeaderClick;
 
@@ -443,11 +430,34 @@ public class EPIC_1741 extends UtilClass {
 
 	@FindBy(xpath = "//span[contains(text(),'Resolved-Completed')]")
 	public static WebElement Resolved_Completed;
+	
+	//**** Frame ****
+	@FindBy(xpath = "//iframe[contains(@name, 'PegaGadget')]")
+	public WebElement frameName_Main;
 
-	public static void frameSwitch() {
-		driver.switchTo().frame(frameName);
+	@FindBy(xpath = "//iframe[@name='PegaGadget0Ifr']")
+	public static WebElement frameName0;
 
+	@FindBy(xpath = "//iframe[@name='PegaGadget1Ifr']")
+	public static WebElement frameName1;
+
+	@FindBy(xpath = "//iframe[@name='PegaGadget2Ifr']")
+	public static WebElement frameName2;
+
+	@FindBy(xpath = "//iframe[@name='PegaGadget3Ifr']")
+	public static WebElement frameName3;
+
+	@FindBy(xpath = "//iframe[@name='PegaGadget4Ifr']")
+	public static WebElement frameName4;
+	
+	public static void frame1() {
+		driver.switchTo().frame(frameName1);
 	}
+	
+	public static void frame0() {
+		driver.switchTo().frame(frameName0);
+	}
+
 
 	public void api() throws Exception {
 
@@ -478,27 +488,7 @@ public class EPIC_1741 extends UtilClass {
 		System.out.println("Status Code: " + statusCode);
 		extentTest.log(Status.PASS, "Successfully created PAR Order");
 	}
-
-	public static void Main_frame() {
-		driver.switchTo().frame(oneframe);
-	}
 	
-	public static void frameswitch1() {
-		driver.switchTo().frame(frameName1);
-	}
-	
-
-	public static void frameswitch2() {
-		driver.switchTo().frame(frameName2);
-	}
-
-	public void FrameSwtich3() {
-		driver.switchTo().frame(iframe3);
-	}
-
-	public void FrameSwtich4() {
-		driver.switchTo().frame(iframe4);
-	}
 
 	public void PEGALogin() throws InterruptedException {
 		ssoLogin.click();
@@ -527,7 +517,7 @@ public class EPIC_1741 extends UtilClass {
 		Await();
 		OrdersPAR.click();
 		Await();
-		frameSwitch();
+		Frame_Switch();
 		waits(OSD);
 		OSD.click();
 		waits(InboundTrailer);
@@ -550,8 +540,7 @@ public class EPIC_1741 extends UtilClass {
 		ClickPARCaseID.click();
 		Await();
 		driver.switchTo().defaultContent();
-		driver.switchTo().frame(frameName2);
-
+		frame1();
 		Await();
 		// Inbound_trailer_outboundLoads_Status.click();
 		// driver.switchTo().defaultContent();
@@ -592,12 +581,13 @@ public class EPIC_1741 extends UtilClass {
 		EPIC_1741.ClickonGo.click();
 		EPIC_1741.driver.switchTo().defaultContent();
 		Await();
-		EPIC_1741.frameswitch2();
+		frame1();
 		Await();
 	}
 
 	public void POD_Exception_2() throws InterruptedException {
-		getIgnoringStaleElementException(Arrived_At_Pickup_Date_POD_Exception);
+		Await();
+	//	getIgnoringStaleElementException(Arrived_At_Pickup_Date_POD_Exception);
 		Arrived_POD = Arrived_At_Pickup_Date_POD_Exception.getText();
 		System.out.println(Arrived_POD);
 		Await();
@@ -606,11 +596,19 @@ public class EPIC_1741 extends UtilClass {
 	}
 
 	public void BackToPega() throws InterruptedException, ParseException {
-		Windows();
+	//	Windows();
 		Await();
-		String parentWindow = driver.getWindowHandle();
-		driver.switchTo().window(parentWindow);
-		Await();
+		ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
+		driver.switchTo().window(tab.get(0));
+		// Windows();
+		List<WebElement> Close_Tabs = driver
+				.findElements(By.xpath("//span[contains(text(), 'Home')]/following::td/span[@title='Close this tab']"));
+ 
+		for (int i = 0; i < Close_Tabs.size(); i++) {
+			Close_Tabs.get(i).click();
+			System.out.println("Successfully closed all tabs");
+ 
+		}
 		// waits(CLickonDataType);
 		extentTest.log(Status.PASS, "Back To PEGA");
 
@@ -620,7 +618,7 @@ public class EPIC_1741 extends UtilClass {
 
 		driver.switchTo().defaultContent();
 		// FrameSwtich4();
-		frameswitch1();
+		frame0();
 		// Await();
 		Thread.sleep(9000);
 		Clickon_Record_Status_and_OrderDatatype.click();
@@ -692,7 +690,7 @@ public class EPIC_1741 extends UtilClass {
 		driver.switchTo().defaultContent();
 
 	//	Main_frame();
-		frameswitch2();
+		frame1();
 		Thread.sleep(9000);
 		waits(Clickon_Record_Status_and_OrderDatatype);
 		Clickon_Record_Status_and_OrderDatatype.click();

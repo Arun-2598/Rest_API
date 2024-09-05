@@ -1,65 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-14T19:42:22 IST" name="Suite" finished-at="2024-06-14T19:57:05 IST" duration-ms="883586">
+  <suite started-at="2024-08-23T18:13:09 IST" name="Default suite" finished-at="2024-08-23T18:15:34 IST" duration-ms="144675">
     <groups>
     </groups>
-    <test started-at="2024-06-14T19:42:22 IST" name="Test" finished-at="2024-06-14T19:57:05 IST" duration-ms="883586">
+    <test started-at="2024-08-23T18:13:09 IST" name="Default test" finished-at="2024-08-23T18:15:34 IST" duration-ms="144675">
       <class name="Runner_Sprint_38.Runner">
-        <test-method is-config="true" signature="extentReportInitialization()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:42:22 IST" name="extentReportInitialization" finished-at="2024-06-14T19:42:22 IST" duration-ms="371" status="PASS">
+        <test-method is-config="true" signature="extentReportInitialization()[pri:0, instance:Runner_Sprint_38.Runner@6c1a5b54]" started-at="2024-08-23T18:13:09 IST" name="extentReportInitialization" finished-at="2024-08-23T18:13:10 IST" duration-ms="391" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- extentReportInitialization -->
-        <test-method is-config="true" signature="BrowserLaunch()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:42:22 IST" name="BrowserLaunch" finished-at="2024-06-14T19:42:26 IST" duration-ms="3573" status="PASS">
+        <test-method is-config="true" signature="BrowserLaunch()[pri:0, instance:Runner_Sprint_38.Runner@6c1a5b54]" started-at="2024-08-23T18:13:10 IST" name="BrowserLaunch" finished-at="2024-08-23T18:13:14 IST" duration-ms="4019" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BrowserLaunch -->
-        <test-method signature="EPICPLTFRM_1735()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:42:26 IST" name="EPICPLTFRM_1735" finished-at="2024-06-14T19:47:09 IST" duration-ms="282862" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EPICPLTFRM_1735 -->
-        <test-method is-config="true" signature="browser()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:47:09 IST" name="browser" finished-at="2024-06-14T19:47:09 IST" duration-ms="333" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browser -->
-        <test-method is-config="true" signature="BrowserLaunch()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:47:09 IST" name="BrowserLaunch" finished-at="2024-06-14T19:47:12 IST" duration-ms="2966" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrowserLaunch -->
-        <test-method signature="EPICPLTFRM_1741()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:47:12 IST" name="EPICPLTFRM_1741" finished-at="2024-06-14T19:49:50 IST" duration-ms="157797" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EPICPLTFRM_1741 -->
-        <test-method is-config="true" signature="browser()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:49:50 IST" name="browser" finished-at="2024-06-14T19:49:50 IST" duration-ms="383" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browser -->
-        <test-method is-config="true" signature="BrowserLaunch()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:49:50 IST" name="BrowserLaunch" finished-at="2024-06-14T19:49:53 IST" duration-ms="2989" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrowserLaunch -->
-        <test-method signature="EPICPLTFRM_1889()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:49:53 IST" name="EPICPLTFRM_1889" finished-at="2024-06-14T19:53:47 IST" duration-ms="233950" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EPICPLTFRM_1889 -->
-        <test-method is-config="true" signature="browser()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:53:47 IST" name="browser" finished-at="2024-06-14T19:53:47 IST" duration-ms="306" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browser -->
-        <test-method is-config="true" signature="BrowserLaunch()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:53:47 IST" name="BrowserLaunch" finished-at="2024-06-14T19:53:50 IST" duration-ms="2835" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrowserLaunch -->
-        <test-method signature="EPICPLTFRM_1896()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:53:50 IST" name="EPICPLTFRM_1896" finished-at="2024-06-14T19:57:05 IST" duration-ms="194810" status="PASS">
+        <test-method signature="EPICPLTFRM_1896()[pri:0, instance:Runner_Sprint_38.Runner@6c1a5b54]" started-at="2024-08-23T18:13:14 IST" name="EPICPLTFRM_1896" finished-at="2024-08-23T18:15:34 IST" duration-ms="140216" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EPICPLTFRM_1896 -->
-        <test-method is-config="true" signature="browser()[pri:0, instance:Runner_Sprint_38.Runner@45099dd3]" started-at="2024-06-14T19:57:05 IST" name="browser" finished-at="2024-06-14T19:57:05 IST" duration-ms="354" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browser -->
       </class> <!-- Runner_Sprint_38.Runner -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

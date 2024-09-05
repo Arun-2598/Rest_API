@@ -9,9 +9,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -78,6 +80,10 @@ public class EPIC_1896 extends UtilClass {
 
 	@FindBy(xpath = "//iframe[@name='PegaGadget1Ifr']")
 	public static WebElement frameName2;
+	
+	@FindBy(xpath = "//iframe[@name='PegaGadget2Ifr']")
+	public static WebElement frameName3;
+	
 
 	@FindBy(xpath = "//h3[contains(text(),'OS&D')]")
 	public static WebElement OSD;
@@ -467,6 +473,9 @@ public class EPIC_1896 extends UtilClass {
 		extentTest.log(Status.PASS, "Order is Moved into Received Status");
 
 	}
+	
+	
+
 
 	public static void frameswitch1() {
 		driver.switchTo().frame(frameName1);
@@ -475,6 +484,12 @@ public class EPIC_1896 extends UtilClass {
 	public static void frameswitch2() {
 		driver.switchTo().frame(frameName2);
 	}
+	
+	public static void frameswitch3() {
+		driver.switchTo().frame(frameName3);
+	}
+	
+	
 
 	public static void getAttribute() {
 		DateTime = GetDateandTime.getAttribute("data-value");
@@ -562,14 +577,25 @@ public class EPIC_1896 extends UtilClass {
 		ArrayList<String> tab = new ArrayList<>(driver.getWindowHandles());
 		driver.switchTo().window(tab.get(0));
 		// Windows();
+		List<WebElement> Close_Tabs = driver
+				.findElements(By.xpath("//span[contains(text(), 'Home')]/following::td/span[@title='Close this tab']"));
+ 
+		for (int i = 0; i < Close_Tabs.size(); i++) {
+			Close_Tabs.get(i).click();
+			System.out.println("Successfully closed all tabs");
+ 
+		}
 
 		CLickonDataType.click();
 		Await();
 		ClickonOrderDatatype.click();
+		Await();
+		
 
 		driver.switchTo().defaultContent();
 		// FrameSwtich4();
 		frameswitch1();
+		
 		Await();
 		waits(Clickon_Record_Status_and_OrderDatatype);
 		// Await();
@@ -642,7 +668,7 @@ public class EPIC_1896 extends UtilClass {
 
 		Await();
 		driver.switchTo().defaultContent();
-		frameswitch2();
+		frameswitch3();
 //		Main_frame();
 		Thread.sleep(9000);
 		waits(Clickon_Record_Status_and_OrderDatatype);
