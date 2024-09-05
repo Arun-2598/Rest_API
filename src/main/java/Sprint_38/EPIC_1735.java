@@ -3,6 +3,7 @@ package Sprint_38;
 import static org.testng.Assert.assertEquals;
 
 import java.io.File;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.codehaus.jettison.json.JSONObject;
 import org.openqa.selenium.By;
@@ -25,6 +26,7 @@ import io.restassured.response.Response;
 public class EPIC_1735 extends UtilClass {
 	public static String sendkeys = "";
 	public static String DateTime = "";
+	public static String BOL_Order="";
 
 	public EPIC_1735(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -77,6 +79,12 @@ public class EPIC_1735 extends UtilClass {
 
 	@FindBy(xpath = "//a[contains(text(), 'PAR')]")
 	public static WebElement ClickPARCaseID;
+	
+	@FindBy(xpath = "//label[contains(text(), 'BOL Search')]/following-sibling::div/div/input[@placeholder= 'Select BOL']")
+	public static WebElement BOL_Search_POD_Review;
+	
+	@FindBy(xpath = "//span[contains(text(), ' Use \"')]")
+	public static WebElement Click_BOL_Search_Dropdown;
 
 	@FindBy(xpath = "//*[contains(@name, '$PpyWorkPage$pStatusEvent')]")
 	public static WebElement Inbound_trailer_outboundLoads_Status;
@@ -191,7 +199,12 @@ public class EPIC_1735 extends UtilClass {
 		JSONObject jsonObject = new JSONObject(actual);
 		JSONObject orderRefs = jsonObject.getJSONObject("OrderRefs");
 
-		orderRefs.put("BOL", Math.ceil(Math.random() * 100000000));
+		int randomNumber = ThreadLocalRandom.current().nextInt(0, 100000000); 
+		BOL_Order = Integer.toString(randomNumber);
+		System.out.println("BillOfLadding:"+ BOL_Order);
+		orderRefs.put("BOL", BOL_Order).toString();
+		
+		
 		orderRefs.put("TrackingNumber", Math.ceil(Math.random() * 100000000));
 		orderRefs.put("InvoiceNumber", Math.ceil(Math.random() * 100000000));
 
@@ -302,6 +315,9 @@ public class EPIC_1735 extends UtilClass {
 		Release_Carrier();
 		EPIC_1735.Submit.click();
 		extentTest.log(Status.PASS, "Entering into POD Exception Screen");
+		
+			
+		
 	}
 
 	public void POD_Received_Validation() {
@@ -324,6 +340,16 @@ public class EPIC_1735 extends UtilClass {
 		OrderFilterApply.click();
 		Await();
 		extentTest.log(Status.PASS, "Filter the Order");
+
+	}
+	
+	public void Search_BOL() throws InterruptedException {
+		Thread.sleep(9000);
+		Click_BOL_Search_Dropdown.sendKeys(BOL_Order);
+		Await();
+		Click_BOL_Search_Dropdown.click();
+		Thread.sleep(9000);
+		
 
 	}
 

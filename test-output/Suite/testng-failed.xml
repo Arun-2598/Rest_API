@@ -8,6 +8,7 @@
           <include name="EPICPLTFRM_1889"/>
           <include name="EPICPLTFRM_1896"/>
           <include name="extentReportInitialization"/>
+          <include name="EPICPLTFRM_1741"/>
           <include name="BrowserLaunch"/>
           <include name="browser"/>
         </methods>

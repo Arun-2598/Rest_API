@@ -42,9 +42,6 @@ public class Runner extends UtilClass {
 		EPIC_1735.ClickonCalendar.click();
 		EPIC_1735.Calendarss();
 		Await();
-//		login.ClickOnApply.click();
-//		Await();
-//		Pom.getAttribute();
 		EPIC_1735.Submit.click();
 		Await();
 		EPIC_1735.ClickonGo.click();
@@ -68,12 +65,9 @@ public class Runner extends UtilClass {
 		EPIC_1735.ClickonPOD_Review.click();
 		driver.switchTo().defaultContent();
 		EPIC_1735.frameSwitch();
-		// Await();
 		Thread.sleep(9000);
-
-		// ---------------
-
-		login.OrderSearchandFilter();
+	//	login.OrderSearchandFilter();
+		login.Search_BOL();
 		Await();
 		EPIC_1735.Validate_Status_Released();
 		EPIC_1735.Validate_Attachment_No();
@@ -82,17 +76,12 @@ public class Runner extends UtilClass {
 		login.Rich_Text();
 		login.Attachment_Submit();
 		Await();
-		login.OrderSearchandFilter();
+		login.Search_BOL();
 		Await();
 		EPIC_1735.Validate_Status_PODReceived();
 		Await();
 		EPIC_1735.Validate_Attachment_Yes();
-//				Await();
-//				pom.OrderSearchandFilter();
 		Await();
-//		EPIC_1735.Attachment_Clip();
-//		login.AddURL();
-//		login.Attachment_Submit();
 		EPIC_1735.driver.switchTo().defaultContent();
 		login.SwitchtoOrderPage();
 		EPIC_1735.frameswitch2();
@@ -102,42 +91,13 @@ public class Runner extends UtilClass {
 		EPIC_1735.driver.switchTo().defaultContent();
 		EPIC_1735.frameswitch2();
 		Await();
-		EPIC_1735.ClickonGo.click();
-		Await();
-		EPIC_1735.Submit.click();
-		Await();
-
-		Await();
-		EPIC_1735.driver.switchTo().defaultContent();
-		EPIC_1735.ClickonOrdersPAR.click();
-		EPIC_1735.frameSwitch();
-		EPIC_1735.ClickonPOD_Review.click();
-		driver.switchTo().defaultContent();
-		EPIC_1735.frameSwitch();
-
-		// Await();
 		Thread.sleep(9000);
-
-		// ---------------
-
-		login.OrderSearchandFilter();
+		login.Search_BOL();
 		Await();
 		EPIC_1735.Validate_Attachment_Yes();
 		Await();
 		EPIC_1735.Validate_Req_Status_Yes();
 		Await();
-		login.Approve_POD();
-
-		EPIC_1735.driver.switchTo().defaultContent();
-		login.SwitchtoOrderPage();
-		EPIC_1735.frameswitch2();
-		Await();
-		login.ActionsButton();
-		Await();
-		EPIC_1735.driver.switchTo().defaultContent();
-		EPIC_1735.frameswitch2();
-
-		EPIC_1735.Resolved_Completed();
 		
 
 	}
@@ -167,7 +127,7 @@ public class Runner extends UtilClass {
 		EPIC_1741.ClickonGo.click();
 		EPIC_1741.driver.switchTo().defaultContent();
 		Await();
-		EPIC_1741.frameswitch2();
+		EPIC_1741.frame1();
 		Await();
 		login.Released_Status();
 		Await();
@@ -182,14 +142,14 @@ public class Runner extends UtilClass {
 		EPIC_1741.ClickonGo.click();
 		EPIC_1741.driver.switchTo().defaultContent();
 		Await();
-		EPIC_1741.frameswitch2();
+		EPIC_1741.frame1();
 		Await();
-		login.POD_Exception();
-		login.POD_Exception_2();
+//		login.POD_Exception(); ** Comment this temporarily need to change the frames in this method
+//		login.POD_Exception_2(); ** Comment this temporarily need to change the frames in this method
 
 		Await();
-		login.BackToPega();
-		
+		// login.BackToPega(); ** Comment this temporarily need to change the frames in
+		// this method
 
 	}
 
@@ -237,8 +197,8 @@ public class Runner extends UtilClass {
 		login.POD_Exception_2();
 		Await();
 		login.Clip_board();
-		login.BackToPega();
-		
+		// login.BackToPega(); ** Comment this temporarily need to change the frames in
+		// this method
 
 	}
 
@@ -287,8 +247,8 @@ public class Runner extends UtilClass {
 		login.POD_Exception_2();
 		Await();
 		login.Clip_board();
-		login.BackToPega();
-		
+		// login.BackToPega(); ** Comment this temporarily need to change the frames in
+		// this method
 
 	}
 }
