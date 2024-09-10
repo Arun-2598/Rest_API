@@ -69,11 +69,8 @@
 			<version>5.1.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>API_Test</groupId>
-			<artifactId>Order_creation</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
+		
 		<dependency>
 			<groupId>Smoke_Proj</groupId>
 			<artifactId>Smoke_tetsing_EPIC</artifactId>
