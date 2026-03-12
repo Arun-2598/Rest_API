@@ -17,8 +17,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestListener;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -26,7 +24,6 @@ import org.testng.annotations.Listeners;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Listeners(TestListener.class)
 public class UtilClass {
@@ -163,15 +160,15 @@ public class UtilClass {
 
 		if (text != null) {
 		    if (text.contains("PegaGadget0Ifr")) {
-		        driver.switchTo().frame(Frames_method.frameName0);
+		        driver.switchTo().frame(EPIC_1741.frameName0);
 		    } else if (text.contains("PegaGadget1Ifr")) {
-		        driver.switchTo().frame(Frames_method.frameName1);
+		        driver.switchTo().frame(EPIC_1741.frameName1);
 		    } else if (text.contains("PegaGadget2Ifr")) {
-		        driver.switchTo().frame(Frames_method.frameName2);
+		        driver.switchTo().frame(EPIC_1741.frameName2);
 		    } else if (text.contains("PegaGadget3Ifr")) {
-		        driver.switchTo().frame(Frames_method.frameName3);
+		        driver.switchTo().frame(EPIC_1741.frameName3);
 		    } else if (text.contains("PegaGadget4Ifr")) {
-		        driver.switchTo().frame(Frames_method.frameName4);
+		        driver.switchTo().frame(EPIC_1741.frameName4);
 		    } else {
 		        System.out.println("No matching frame found for name: " + text);
 		        // Add appropriate handling or throw an exception if needed
